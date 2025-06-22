@@ -1,0 +1,189 @@
+.row {
+  margin-left: 20px;
+  color: white;
+  position: relative;
+  z-index: 1; 
+}
+  
+  .row_posters {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+  }
+  
+  .row_posters::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .row_poster {
+    width: 100%;
+    max-height: 100px;
+    transition: transform 450ms;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .row_poster:hover {
+    transform: scale(1.08);
+  }
+  
+  .row_posterLarge {
+    max-height: 250px;
+  }
+  
+  .row_posterLarge:hover {
+    transform: scale(1.08);
+  }
+  
+  .row__loading,
+  .row__error {
+    padding: 20px;
+    font-style: italic;
+    color: lightgray;
+  }
+  
+  .row__trailer-container {
+    position: relative; /* For positioning loading/error messages over the video */
+  }
+  
+  .row__trailer-container .row__loading,
+  .row__trailer-container .row__error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 10; /* Ensure it's above the YouTube player */
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .row {
+      margin-left: 10px; /* Reduce left margin on smaller screens */
+    }
+  
+    .row_posters {
+      padding: 10px; /* Reduce padding on smaller screens */
+    }
+  
+    .row_poster {
+      max-height: 80px; /* Smaller poster height for mobile */
+      margin-right: 5px; /* Reduce right margin between posters */
+    }
+  
+    .row_posterLarge {
+      max-height: 180px; /* Smaller large poster height for mobile */
+    }
+  
+    .row h2 {
+      font-size: 1.2rem; /* Smaller title for mobile */
+    }
+  
+    .row__trailer-container {
+      padding: 20px; /* Adjust trailer padding for mobile */
+    }
+  }
+  
+  /* Very small screens (optional) */
+  @media (max-width: 480px) {
+    .row_poster {
+      max-height: 60px; /* Even smaller for very small phones */
+      margin-right: 3px;
+    }
+  
+    .row_posterLarge {
+      max-height: 150px;
+    }
+  
+    .row h2 {
+      font-size: 1rem;
+    }
+  }
+  /* Blur background when trailer is open */
+.blurred {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7); /* Dimming effect */
+  backdrop-filter: blur(8px); /* Optional blur behind modal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal content */
+.modal__content {
+  position: relative;
+  background-color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Close button */
+.modal__close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: white;
+  color: black;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOutZoom {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+/* Apply fade & zoom when modal appears */
+.modal__content {
+  animation: fadeInZoom 0.3s ease forwards;
+}
+@media (max-width: 600px) {
+  .modal__content {
+    width: 95%;
+    padding: 10px;
+  }
+  .modal__close {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+}

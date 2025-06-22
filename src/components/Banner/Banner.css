@@ -1,0 +1,113 @@
+.banner {
+  position: relative;
+  margin-top: -10vh;
+  height: 80vh;
+  color: white;
+  object-fit: contain;
+  overflow: hidden;
+  margin-bottom: -80px;
+  z-index: 1; 
+}
+
+.banner--loading {
+  background-color: #111; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.banner_contents {
+  position: absolute;
+  z-index: 2;
+  bottom: 0; 
+  left: 30px;
+  padding-bottom: 80px; 
+  max-width: 50%; 
+}
+
+.banner_title {
+  font-size: 3rem;
+  font-weight: 800;
+  padding-bottom: 0.5rem; /* Slightly more padding */
+}
+
+.banner_description {
+  padding: 1rem 0;
+  font-size: 1rem;
+  max-width: 45rem; /* Adjusted max-width */
+  line-height: 1.3; /* Improved line height for readability */
+  height: auto; /* Adjust height dynamically based on content */
+}
+
+.banner_buttons {
+  display: flex;
+}
+
+.banner_button {
+  color: #fff;
+  outline: none;
+  border: none;
+  font-size: 1.1rem; /* Slightly smaller font */
+  padding: 0.8rem 2rem; /* Adjusted padding */
+  border-radius: 0.2rem;
+  font-weight: 700;
+  margin-right: 1rem; /* Reduced right margin */
+  cursor: pointer;
+  background-color: rgba(51, 51, 51, 0.525);
+  transition: background-color 0.3s ease; /* Added transition for hover effect */
+  margin-bottom: 20px;
+}
+
+.play {
+  color: #111;
+  background-color: #fff;
+}
+
+.banner_button:hover {
+  color: #fff;
+  background-color: rgba(51, 51, 51, 0.9); /* Darker hover */
+}
+
+.banner--fadeBottom {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40vh; 
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.1), /* Softer start to the fade */
+    #111
+  );
+}
+
+/* Responsive adjustments (optional) */
+@media (max-width: 768px) {
+  .banner {
+    height: 60vh; /* Adjust height for smaller screens */
+  }
+  .banner_contents {
+    padding-bottom: 30px;
+    max-width: 80%;
+    left: 20px;
+  }
+  .banner_title {
+    font-size: 2rem;
+  }
+  .banner_description {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+  .banner_button {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    margin-right: 0.5rem;
+  }
+  .banner--fadeBottom {
+    height: 15vh;
+  }
+}

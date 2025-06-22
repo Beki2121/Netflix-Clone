@@ -1,0 +1,117 @@
+.header-outer-container {  
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  height: 10vh;
+  color: white;
+  transition: all 0.5s ease-in;
+  z-index: 10;
+}
+
+.header-outer-container.scrolled {
+  background-color: rgb(20, 20, 20); /* solid background when scrolled */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.header-container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.netflix-logo {
+  margin-right: 20px;
+}
+
+/* Default navigation menu (for larger screens) */
+.header-left-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+  color: white;
+}
+
+/* Right-side icons */
+.header-right ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Arrow icon toggle */
+.dropdown-arrow {
+  cursor: pointer;
+}
+
+/* Mobile menu toggle icon (hamburger) */
+.mobile-menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+/* Mobile dropdown menu style */
+.header-left-list.mobile-menu-open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  background-color: rgb(20, 20, 20);
+  width: 100%;
+  padding: 20px;
+  z-index: 2;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.header-left-list.mobile-menu-open li {
+  margin: 0;
+}
+
+/* Browse by language option (hidden on larger screens by default) */
+.browse-language {
+  display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header-left-list {
+    display: none; /* Hide nav list by default on mobile */
+  }
+
+  .header-left-list.mobile-menu-open {
+    display: flex;
+  }
+
+  .browse-language {
+    display: block;
+  }
+
+  .header-right ul {
+    gap: 15px;
+  }
+
+  .mobile-menu-toggle {
+    display: block; /* Show hamburger only on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-right ul {
+    gap: 10px;
+  }
+}
